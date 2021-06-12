@@ -39,20 +39,19 @@ var picPath = path.resolve(__dirname,'public');
   
 app.use(express.static(picPath));  
   
-app.use(bodyParser.urlencoded({extended:false}))  
-  
+app.use(bodyParser.urlencoded({extended:false}));  
 
 app.get('/',(req,res)=>{  
     picModel.find((err,data)=>{  
              if(err){  
-                 console.log(err)  
+                 console.log(err);  
              }  
             if(data){  
                 console.log(data)  
-                res.render('home',{data:data})  
+                res.render('home',{data:data});  
             }   
            else{  
-               res.render('home',{data:{}})  
+               res.render('home',{data:{}});  
            }   
     });     
 });  
@@ -64,11 +63,11 @@ app.post('/',upload.single('pic'),(req,res)=>{
     });  
     picss.save((err,data)=>{  
          if(err){  
-             console.log(err)  
+             console.log(err);  
          }  
          else{  
-             console.log('data',data)  
-            res.redirect('/')  
+             console.log('data',data); 
+            res.redirect('/');  
          }  
     });  
 });  
